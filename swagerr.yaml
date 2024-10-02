@@ -1,0 +1,106 @@
+openapi: 3.0.1
+info:
+  title: ACTION-REACTION API
+  description: API documentation for the ACTION-REACTION project
+  version: "1.0.0"
+
+paths: {}
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+        password_hash:
+          type: string
+        oauth_provider:
+          type: string
+          nullable: true
+        oauth_id:
+          type: string
+          nullable: true
+
+    Service:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+
+    Action:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        service_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+
+    Reaction:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        service_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+
+    UserService:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        user_id:
+          type: string
+          format: uuid
+        service_id:
+          type: string
+          format: uuid
+        access_token:
+          type: string
+        refresh_token:  
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+
+    Area:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        user_id:
+          type: string
+          format: uuid
+        action_id:
+          type: string
+          format: uuid
+        reaction_id:
+          type: string
+          format: uuid
+        parameters:
+          type: string
+          format: uuid
